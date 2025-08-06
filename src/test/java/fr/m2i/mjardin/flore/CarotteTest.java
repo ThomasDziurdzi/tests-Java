@@ -6,8 +6,6 @@ import java.util.HashMap;
 
 import org.junit.jupiter.api.Test;
 
-import fr.m2i.mjardin.flore.Carotte;
-
 public class CarotteTest {
 	
 	@Test
