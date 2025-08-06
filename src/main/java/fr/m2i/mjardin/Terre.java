@@ -1,6 +1,7 @@
 package fr.m2i.mjardin;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -24,8 +25,9 @@ public class Terre {
 		JardinDAO jardinDAO = new JardinDAO(manager.getConnection());
 		PanierDAO panierDAO = new PanierDAO(manager.getConnection());
 		EmplacementDAO emplacementDAO = new EmplacementDAO(manager.getConnection());
+		Map<String, Integer> panier = new HashMap<String, Integer>();
 		
-		Jardin j = new Jardin(1,new HashMap<String, Integer>(), jardinDAO, emplacementDAO, panierDAO);
+		Jardin j = new Jardin(1, panier, jardinDAO, emplacementDAO, panierDAO);
 				
 		Scanner scanner = new Scanner(System.in);
 		int res = 0;

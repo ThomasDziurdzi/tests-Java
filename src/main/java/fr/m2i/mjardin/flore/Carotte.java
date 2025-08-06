@@ -18,4 +18,5 @@ public class Carotte extends Vegetal implements IRacePure {
 	public void seReproduire(Map<String, Integer> panier) {
 		panier.put("Carotte", panier.getOrDefault("Carotte", 0) + 3);		
 	}
+
 }

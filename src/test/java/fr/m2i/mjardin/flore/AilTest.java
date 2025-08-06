@@ -6,34 +6,40 @@ import java.util.HashMap;
 
 import org.junit.jupiter.api.Test;
 
+import fr.m2i.mjardin.flore.Ail;
+
 public class AilTest {
+
+	
 
 	@Test
 	public void testSeReproduireVide() {
-		// Arrange
+		//Arrange
+		java.util.HashMap<String, Integer> panier = new HashMap<String, Integer>();
 		Ail ail = new Ail();
-		HashMap<String, Integer> panier = new HashMap<>();
-
-		// Act
+		
+		//Act
 		ail.seReproduire(panier);
-		int resultObtenu = panier.get("Ail");
-		// Assert
+		int resultatObtenu = panier.get("Ail");
+		
+		//Assert
 		int resultatAttendu = 3;
-		assertEquals(resultatAttendu, resultObtenu);
+		assertEquals(resultatAttendu, resultatObtenu);
 	}
 	
 	@Test
 	public void testSeReproduireNonVide() {
-		// Arrange
-		Ail ail = new Ail();
-		HashMap<String, Integer> panier = new HashMap<>();
+		//Arrange
+		java.util.HashMap<String, Integer> panier = new HashMap<String, Integer>();
 		panier.put("Ail", 4);
-
-		// Act
+		Ail ail = new Ail();
+		
+		//Act
 		ail.seReproduire(panier);
-		int resultObtenu = panier.get("Ail");
-		// Assert
+		int resultatObtenu = panier.get("Ail");
+		
+		//Assert
 		int resultatAttendu = 7;
-		assertEquals(resultatAttendu, resultObtenu);
+		assertEquals(resultatAttendu, resultatObtenu);
 	}
 }

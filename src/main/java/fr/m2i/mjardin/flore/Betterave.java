@@ -18,7 +18,7 @@ public class Betterave extends Vegetal implements IOgm {
 	@Override
 	public SimpleEntry<Integer, Integer> seDupliquer(int longueur, int largeur) {
 		if(!this.estRecoltable()) {
-			throw new RuntimeException("Le vegetal n'est pas récoltable!");			
+			throw new RuntimeException("Le vegetal n'est pas récoltable");
 		}
 		Random random = new Random();
 		int x = random.nextInt(longueur);
@@ -26,4 +26,5 @@ public class Betterave extends Vegetal implements IOgm {
 		this.etat = Etat.GRAINE;
 		return new SimpleEntry<Integer, Integer>(x, y);
 	}
+	
 }

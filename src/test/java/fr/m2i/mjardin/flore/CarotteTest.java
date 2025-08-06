@@ -6,18 +6,38 @@ import java.util.HashMap;
 
 import org.junit.jupiter.api.Test;
 
+import fr.m2i.mjardin.flore.Carotte;
+
 public class CarotteTest {
-	
+
 	@Test
-	public void testSeReproduire() {
-		// Arrange
+	public void testSeReproduireVide () {
+		//Arrange
+		java.util.HashMap<String, Integer> panier = new HashMap<String, Integer>();
 		Carotte carotte = new Carotte();
-		HashMap<String, Integer> panier = new HashMap<String, Integer>();
-		// Act
+		
+		//Act
 		carotte.seReproduire(panier);
 		int resultatObtenu = panier.get("Carotte");
-		// Assert
+		
+		//Assert
 		int resultatAttendu = 3;
+		assertEquals(resultatAttendu, resultatObtenu);
+	}
+	
+	@Test
+	public void testSeReproduireNonVide() {
+		//Arrange
+		java.util.HashMap<String, Integer> panier = new HashMap<String, Integer>();
+		panier.put("Carotte", 4);
+		Carotte carotte = new Carotte();
+		
+		//Act
+		carotte.seReproduire(panier);
+		int resultatObtenu = panier.get("Carotte");
+		
+		//Assert
+		int resultatAttendu = 7;
 		assertEquals(resultatAttendu, resultatObtenu);
 	}
 }
