@@ -5,8 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import fr.m2i.mjardin.dao.interfaces.IPanierDAO;
 import fr.m2i.mjardin.model.LignePanierModel;
@@ -43,7 +43,7 @@ public class PanierDAO implements IPanierDAO {
 		return panier;		
 	}
 	
-	public void savePanier(final int idJardin, final HashMap<String, Integer> panier)  {
+	public void savePanier(final int idJardin, final Map<String, Integer> panier)  {
 		
 		for(String nomDuVegetal : panier.keySet()) {
 			

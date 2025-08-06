@@ -1,6 +1,6 @@
 package fr.m2i.mjardin.flore;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public class Ail extends Vegetal implements IRacePure {
 
@@ -15,7 +15,7 @@ public class Ail extends Vegetal implements IRacePure {
 	}
 
 	@Override
-	public void seReproduire(HashMap<String, Integer> panier) {
+	public void seReproduire(Map<String, Integer> panier) {
 		panier.put("Ail", panier.getOrDefault("Ail", 0) + 3);		
 	}
 	
