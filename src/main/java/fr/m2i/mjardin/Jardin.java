@@ -95,7 +95,6 @@ public class Jardin {
 		} else {
 			System.err.println("Coordonnées X ou Y erronnées ou graines indisponibles.");
 		}
-
 	}
 
 	public void saisonSuivante() {
@@ -159,5 +158,4 @@ public class Jardin {
 		this.emplacementDAO.saveEmplacements(1, this.emplacements);
 		this.panierDAO.savePanier(1, this.panier);
 	}
-
 }
