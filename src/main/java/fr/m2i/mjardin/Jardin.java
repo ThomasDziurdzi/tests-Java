@@ -31,16 +31,21 @@ public class Jardin {
 	private IEmplacementDAO emplacementDAO;
 	private IPanierDAO panierDAO;
 	
+	/** Scanner **/
+	private Scanner scanner;
+	
 	public Jardin(
 			final int idJardin, 
 			final Map<String, Integer> panier,
 			final IJardinDAO jardinDAO, 
 			final IEmplacementDAO emplacementDAO, 
-			final IPanierDAO panierDAO) {
+			final IPanierDAO panierDAO,
+			final Scanner scanner) {
 		this.panier = panier;
 		this.jardinDAO = jardinDAO;
 		this.emplacementDAO = emplacementDAO;
 		this.panierDAO = panierDAO;
+		this.scanner = scanner;
 		
 		this.init(idJardin);
 	}
@@ -78,7 +83,7 @@ public class Jardin {
 	
 	public void semer() {
 		
-		Scanner scanner = new Scanner(System.in);
+//		Scanner scanner = new Scanner(System.in);
 		System.out.println("Quel est la valeur X ?");
 		int x = scanner.nextInt();
 		System.out.println("Quel est la valeur Y ?");
@@ -90,7 +95,7 @@ public class Jardin {
 				&& y >= 0 && y < jardinModel.largeur() 
 				&& this.panier.getOrDefault(nomDuVegetal, 0) > 0) {
 			try {
-				Class<?> vegClazz = Class.forName("jardin.flore." + nomDuVegetal);
+				Class<?> vegClazz = Class.forName("fr.m2i.mjardin.flore." + nomDuVegetal);
 				Vegetal veg = (Vegetal) vegClazz.getDeclaredConstructor().newInstance();
 				this.emplacements[x][y] = new Emplacement(veg);
 				this.panier.put(nomDuVegetal, this.panier.get(nomDuVegetal) - 1);
@@ -100,7 +105,6 @@ public class Jardin {
 		} else {
 			System.err.println("Coordonnées X ou Y erronnées ou graines indisponibles.");
 		}
-
 	}
 	
 	public void saisonSuivante() {

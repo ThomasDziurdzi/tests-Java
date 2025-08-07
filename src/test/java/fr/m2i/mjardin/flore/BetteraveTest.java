@@ -9,8 +9,6 @@ import java.util.AbstractMap.SimpleEntry;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
-import fr.m2i.mjardin.flore.Betterave;
-import fr.m2i.mjardin.flore.Etat;
 
 public class BetteraveTest {
 	

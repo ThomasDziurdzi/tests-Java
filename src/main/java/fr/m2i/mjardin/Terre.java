@@ -26,10 +26,10 @@ public class Terre {
 		PanierDAO panierDAO = new PanierDAO(manager.getConnection());
 		EmplacementDAO emplacementDAO = new EmplacementDAO(manager.getConnection());
 		Map<String, Integer> panier = new HashMap<String, Integer>();
-		
-		Jardin j = new Jardin(1, panier, jardinDAO, emplacementDAO, panierDAO);
-				
 		Scanner scanner = new Scanner(System.in);
+		
+		Jardin j = new Jardin(1, panier, jardinDAO, emplacementDAO, panierDAO, scanner);
+				
 		int res = 0;
 		do {
 

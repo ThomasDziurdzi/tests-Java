@@ -1,3 +1,4 @@
+fr\m2i\mjardin\dao\interfaces\IPanierDAO.class
 fr\m2i\mjardin\dao\implementations\JardinDAO.class
 fr\m2i\mjardin\model\JardinModel.class
 fr\m2i\mjardin\dao\interfaces\IEmplacementDAO.class
@@ -6,16 +7,15 @@ fr\m2i\mjardin\Emplacement.class
 fr\m2i\mjardin\model\EmplacementModel.class
 fr\m2i\mjardin\model\LignePanierModel.class
 fr\m2i\mjardin\Terre.class
-fr\m2i\mjardin\dao\implementations\EmplacementDAO.class
-fr\m2i\mjardin\flore\Betterave.class
-fr\m2i\mjardin\flore\IOgm.class
-fr\m2i\mjardin\flore\Vegetal.class
-fr\m2i\mjardin\flore\Etat.class
-fr\m2i\mjardin\dao\interfaces\IPanierDAO.class
 fr\m2i\mjardin\flore\Ail.class
+fr\m2i\mjardin\dao\implementations\EmplacementDAO.class
 fr\m2i\mjardin\flore\Carotte.class
 fr\m2i\mjardin\dao\interfaces\IJardinDAO.class
+fr\m2i\mjardin\flore\Betterave.class
 fr\m2i\mjardin\dao\implementations\PanierDAO.class
+fr\m2i\mjardin\flore\IOgm.class
+fr\m2i\mjardin\flore\Vegetal.class
 fr\m2i\mjardin\Jardin.class
 fr\m2i\mjardin\flore\Tomate.class
+fr\m2i\mjardin\flore\Etat.class
 fr\m2i\mjardin\flore\IRacePure.class
