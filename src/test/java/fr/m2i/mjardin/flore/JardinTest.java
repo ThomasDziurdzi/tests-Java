@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -35,56 +37,69 @@ public class JardinTest {
 	PanierDAO panierDAO;
 	@Mock
 	EmplacementDAO emplacementDAO;
+	int idJArdin = 1;
+	
+	@BeforeEach
+	private void init() {
+		JardinModel jModel = new JardinModel(idJArdin, 3, 2);
+		List<EmplacementModel> eModel = new ArrayList<EmplacementModel>();
+		List<LignePanierModel> pModel = new ArrayList<LignePanierModel>();
+		pModel.add(new LignePanierModel(1, "Ail", 1, 1));	
+		
+		when(jardinDAO.getJardin(idJArdin)).thenReturn(jModel);
+		when(emplacementDAO.getEmplacements(idJArdin)).thenReturn(eModel);
+		when(panierDAO.getPanier(idJArdin)).thenReturn(pModel);
+	}
+	
+	@AfterEach
+	private void close() {
+		verify(jardinDAO).getJardin(idJArdin);
+		verify(emplacementDAO).getEmplacements(idJArdin);
+		verify(panierDAO).getPanier(idJArdin);
+	}
 
 	@Test
 	public void testSemer() {
 		// Arrange
-		int idJArdin = 1;
-		JardinModel jModel = new JardinModel(idJArdin, 3, 2);
-		List<EmplacementModel> eModel = new ArrayList<EmplacementModel>();
-		List<LignePanierModel> pModel = new ArrayList<LignePanierModel>();
-		pModel.add(new LignePanierModel(1, "Ail", 1, 1));
-
-		Map<String, Integer> panier = new HashMap<String, Integer>();
-
-		when(jardinDAO.getJardin(idJArdin)).thenReturn(jModel);
-		when(emplacementDAO.getEmplacements(idJArdin)).thenReturn(eModel);
-		when(panierDAO.getPanier(idJArdin)).thenReturn(pModel);
 		when(scanner.nextInt()).thenReturn(0, 1);
 		when(scanner.next()).thenReturn("Ail");
-
+		
+		Map<String, Integer> panier = new HashMap<String, Integer>();
 		Jardin j = new Jardin(1, panier, jardinDAO, emplacementDAO, panierDAO, scanner);
 		int nbGraines = panier.get("Ail");
+		
 		// Act
 		j.semer();
 
 		// Assert
 		verify(scanner, times(2)).nextInt();
 		verify(scanner).next();
-		verify(jardinDAO).getJardin(idJArdin);
-		verify(emplacementDAO).getEmplacements(idJArdin);
-		verify(panierDAO).getPanier(idJArdin);
 		assertEquals(nbGraines - 1, panier.get("Ail"));
-
 	}
 
 	@Test
 	public void testAjouterPanier() {
 		// Arrange
-		MySQLManager manager = MySQLManager.getInstance();
-		JardinDAO jardinDAO = new JardinDAO(manager.getConnection());
-		PanierDAO panierDAO = new PanierDAO(manager.getConnection());
-		EmplacementDAO emplacementDAO = new EmplacementDAO(manager.getConnection());
+	
 		Map<String, Integer> panier = new HashMap<String, Integer>();
-
 		Jardin j = new Jardin(1, panier, jardinDAO, emplacementDAO, panierDAO, scanner);
-
+		
 		String vegetal = "Ail";
+		int nbGraines = panier.get(vegetal);
+		int quantiteAjoutee = 3;
 
 		// Act
-		j.ajouterPanier(vegetal, 3);
+		j.ajouterPanier(vegetal, quantiteAjoutee);
 
 		// Assert
-		assertEquals(3, panier.get(vegetal));
+		assertEquals(nbGraines + quantiteAjoutee, panier.get(vegetal));
+	}
+	@Test
+	public void testArracher() {
+		// Arrange
+		
+		// Act
+		
+		// Assert
 	}
 }
