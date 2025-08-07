@@ -97,7 +97,10 @@ public class JardinTest {
 	@Test
 	public void testArracher() {
 		// Arrange
-		
+		eModel.add(EmplacementModel(1,0,0, "Ail", Etat.GRAINE, idJArdin));
+		Map<String, Integer> panier = new HashMap<String, Integer>();
+	    Jardin j = new Jardin(1, panier, jardinDAO, emplacementDAO, panierDAO, scanner);
+	    
 		// Act
 		
 		// Assert
